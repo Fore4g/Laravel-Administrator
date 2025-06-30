@@ -596,7 +596,7 @@ class Factory {
 		//if this is an autocomplete field, check if there is a search term. If not, just return the selected items
 		if ($fieldObject->getOption('autocomplete') && !$term)
 		{
-			if (sizeof($selectedItems))
+			if (is_countable($selectedItems))
 			{
 				$this->filterQueryBySelectedItems($query, $selectedItems, $fieldObject, $relatedKeyTable);
 
@@ -713,13 +713,13 @@ class Factory {
 	{
 		$configConstraints = $fieldObject->getOption('constraints');
 
-		if (sizeof($configConstraints))
+		if (is_countable($configConstraints))
 		{
 			//iterate over the config constraints
 			foreach ($configConstraints as $key => $relationshipName)
 			{
 				//now that we're looping through the constraints, check to see if this one was supplied
-				if (isset($constraints[$key]) && $constraints[$key] && sizeof($constraints[$key]))
+				if (isset($constraints[$key]) && $constraints[$key] && is_countable($constraints[$key]))
 				{
 					//first we get the other model and the relationship field on it
 					$model = $this->config->getDataModel();
