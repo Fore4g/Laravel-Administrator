@@ -383,7 +383,7 @@ class Factory {
 	 */
 	public function getEditFields($loadRelationships = true, $override = false)
 	{
-		if (!sizeof($this->editFields) || $override)
+		if (!is_countable($this->editFields) || $override)
 		{
 			$this->editFields = array();
 
@@ -489,7 +489,7 @@ class Factory {
 		$configFilters = $this->config->getOption('filters');
 
 		//make sure that the filters array hasn't been created before and that there are supplied filters in the config
-		if (!sizeof($this->filters) && $configFilters)
+		if (!is_countable($this->filters) && $configFilters)
 		{
 			//iterate over the filters and create field objects for them
 			foreach ($configFilters as $name => $filter)
@@ -512,7 +512,7 @@ class Factory {
 	 */
 	public function getFiltersArrays()
 	{
-		if (!sizeof($this->filtersArrays))
+		if (!is_countable($this->filtersArrays))
 		{
 			foreach ($this->getFilters() as $name => $filter)
 			{
