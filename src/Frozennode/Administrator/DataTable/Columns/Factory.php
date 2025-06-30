@@ -207,7 +207,7 @@ class Factory {
 	public function getColumns()
 	{
 		//make sure we only run this once and then return the cached version
-		if (!is_countable($this->columns))
+		if (empty($this->columns))
 		{
 			foreach ($this->config->getOption('columns') as $name => $options)
 			{
@@ -228,7 +228,7 @@ class Factory {
 	public function getColumnOptions()
 	{
 		//make sure we only run this once and then return the cached version
-		if (!is_countable($this->columnOptions))
+		if (empty($this->columnOptions))
 		{
 			foreach ($this->getColumns() as $column)
 			{
@@ -249,7 +249,7 @@ class Factory {
 	public function getIncludedColumns(array $fields)
 	{
 		//make sure we only run this once and then return the cached version
-		if (!is_countable($this->includedColumns))
+		if (empty($this->includedColumns))
 		{
 			$model = $this->config->getDataModel();
 
@@ -292,7 +292,7 @@ class Factory {
 	public function getRelatedColumns()
 	{
 		//make sure we only run this once and then return the cached version
-		if (!is_countable($this->relatedColumns))
+		if (empty($this->relatedColumns))
 		{
 			foreach ($this->getColumns() as $column)
 			{
@@ -314,7 +314,7 @@ class Factory {
 	public function getComputedColumns()
 	{
 		//make sure we only run this once and then return the cached version
-		if (!is_countable($this->computedColumns))
+		if (empty($this->computedColumns))
 		{
 			foreach ($this->getColumns() as $column)
 			{
