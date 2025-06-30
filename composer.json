@@ -1,5 +1,5 @@
 {
-	"name": "fore4g/administrator",
+	"name": "frozennode/administrator",
 	"description": "A database interface package for Laravel",
 	"homepage": "http://administrator.frozennode.com",
 	"keywords": ["administrator", "admin", "database", "laravel-administrator", "laravel", "cms"],
